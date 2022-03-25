@@ -54,7 +54,9 @@ export default function Home() {
               So if you are on a hurry you can download my lovely:
             </h2>
 
-            <Button>Resume Here!</Button>
+            <a href="/juani_reyes_resume.pdf" download>
+              <Button>Resume Here!</Button>
+            </a>
           </section>
 
           <section>
