@@ -24,7 +24,8 @@ const SOCIAL_MEDIA = [
 ];
 
 export default function Home() {
-  const resumeEventTracker = useAnalyticsEvent("Home");
+  const resumeEventTracker = useAnalyticsEvent("Resume");
+  const socialMediaEventTracker = useAnalyticsEvent("Social Media");
 
   const handleButtonClick = () =>
     resumeEventTracker("download", "Download Resume");
@@ -74,7 +75,18 @@ export default function Home() {
 
             <div className={styles.socialIcons}>
               {SOCIAL_MEDIA.map(({ url, Component }) => (
-                <a key={url} href={url} target="_blank" rel="noreferrer">
+                <a
+                  key={url}
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() =>
+                    socialMediaEventTracker(
+                      Component.name,
+                      `${Component.name} clicked`
+                    )
+                  }
+                >
                   <Component />
                 </a>
               ))}
