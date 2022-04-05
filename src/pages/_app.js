@@ -1,10 +1,12 @@
+import { useEffect } from "react";
 import ReactGA from "react-ga";
 import "../../styles/globals.css";
 
-const TRACKING_ID = "G-K3LJK9GVPH"; // OUR_TRACKING_ID
-ReactGA.initialize(TRACKING_ID);
-
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    ReactGA.initialize(process.env.NEXT_PUBLIC_GA_TRACKING_ID);
+  }, []);
+
   return <Component {...pageProps} />;
 }
 
