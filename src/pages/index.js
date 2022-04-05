@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../../styles/Home.module.css";
 import { Spotify, Instagram, LinkedIn, GitHub } from "../common/icons";
 import { Button } from "../components";
+import { useAnalyticsEvent } from "../common/hooks";
 
 const SOCIAL_MEDIA = [
   {
@@ -23,6 +24,11 @@ const SOCIAL_MEDIA = [
 ];
 
 export default function Home() {
+  const resumeEventTracker = useAnalyticsEvent("Home");
+
+  const handleButtonClick = () =>
+    resumeEventTracker("download", "Download Resume");
+
   return (
     <div className="container">
       <Head>
@@ -59,7 +65,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button>Resume Here!</Button>
+              <Button onClick={handleButtonClick}>Resume Here!</Button>
             </a>
           </section>
 
