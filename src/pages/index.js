@@ -37,7 +37,7 @@ export default function Home() {
             <h1>
               Hello there, I’m <span className="primary">Juani</span>
             </h1>
-            <h1 style={{ marginBottom: 8 }}>
+            <h1 style={{ marginBottom: 16 }}>
               <span className="primary">Frontend Engineer</span> / UX Designer
             </h1>
             <h2>
@@ -54,7 +54,11 @@ export default function Home() {
               So if you are on a hurry you can download my lovely:
             </h2>
 
-            <a href="/juani_reyes_resume.pdf" download>
+            <a
+              href="/juani_reyes_resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button>Resume Here!</Button>
             </a>
           </section>
