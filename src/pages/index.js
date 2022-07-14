@@ -1,8 +1,8 @@
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
-import { Button } from "../components/Button";
-import { useAnalyticsEvent } from "../common/hooks";
-import SocialNetworks from "../components/SocialNetworks";
+import { Button } from "@components/Button";
+import { useAnalyticsEvent } from "@common/hooks";
+import SocialNetworks from "@components/SocialNetworks";
 
 export default function Home() {
   const resumeEventTracker = useAnalyticsEvent("Resume");

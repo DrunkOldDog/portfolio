@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { Spotify, Instagram, LinkedIn, GitHub } from "../../common/icons";
-import { useAnalyticsEvent } from "../../common/hooks";
+import { Spotify, Instagram, LinkedIn, GitHub } from "@common/icons";
+import { useAnalyticsEvent } from "@common/hooks";
 
 const SocialNetworksContainer = styled.div`
   display: flex;
