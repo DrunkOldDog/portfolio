@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { Spotify, Instagram, LinkedIn, GitHub } from "../../common/icons";
 import { useAnalyticsEvent } from "../../common/hooks";
 
