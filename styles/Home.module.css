@@ -1,13 +1,9 @@
 .content {
-  text-align: center;
   width: 100%;
   height: calc(100vh - 80px);
-  display: grid;
-  place-items: center;
-}
-
-.content section {
-  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .middleSection {
@@ -15,19 +11,9 @@
   margin-bottom: 56px;
 }
 
-.socialIcons {
-  margin-top: 8px;;
-}
-
-.socialIcons svg {
-  fill: #fff;
-  height: 24px;
-  width: 24px;
-  margin: 0 6px;
-  cursor: pointer;
-  transition: fill .25s;
-}
-
-.socialIcons svg:hover {
-  fill: var(--primary-color);
+.homePage {
+  background-image: url('/images/hero-image.jpg');
+  background-size: cover;
+  background-position: center top;
+  height: 100vh;
 }
