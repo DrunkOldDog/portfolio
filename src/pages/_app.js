@@ -1,5 +1,8 @@
+import { ChakraProvider } from "@chakra-ui/react";
 import { useEffect } from "react";
 import ReactGA from "react-ga";
+import { theme } from '../common/theme';
+
 import "../../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
@@ -7,7 +10,11 @@ function MyApp({ Component, pageProps }) {
     ReactGA.initialize(process.env.NEXT_PUBLIC_GA_TRACKING_ID);
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <ChakraProvider theme={theme}>
+      <Component {...pageProps} />
+    </ChakraProvider>
+  );
 }
 
 export default MyApp;
