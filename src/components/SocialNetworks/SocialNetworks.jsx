@@ -1,21 +1,13 @@
 import styled from "@emotion/styled";
 import { Spotify, Instagram, LinkedIn, GitHub } from "@common/icons";
 import { useAnalyticsEvent } from "@common/hooks";
+import { Box, Flex, Text } from "@chakra-ui/react";
 
-const SocialNetworksContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const SocialIcons = styled.div`
-  margin-top: 8px;
-
+const SocialIcons = styled(Flex)`
   svg {
     fill: #fff;
     height: 24px;
     width: 24px;
-    margin: 0 6px;
     cursor: pointer;
     transition: fill 0.25s;
 
@@ -48,10 +40,12 @@ export default function SocialNetworks() {
   const socialMediaEventTracker = useAnalyticsEvent("Social Media");
 
   return (
-    <SocialNetworksContainer>
-      <h3>Follow me on my socials:</h3>
+    <Box alignSelf={"center"}>
+      <Text fontWeight={"bold"} fontSize={{ base: "lg", xl: "2xl" }}>
+        Follow me on my socials:
+      </Text>
 
-      <SocialIcons>
+      <SocialIcons justifyContent={"center"} columnGap={3}>
         {SOCIAL_MEDIA.map(({ url, Component }) => (
           <a
             key={url}
@@ -69,6 +63,6 @@ export default function SocialNetworks() {
           </a>
         ))}
       </SocialIcons>
-    </SocialNetworksContainer>
+    </Box>
   );
 }

@@ -1,8 +1,8 @@
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
-import { Button } from "@components/Button";
 import { useAnalyticsEvent } from "@common/hooks";
 import SocialNetworks from "@components/SocialNetworks";
+import { Box, Container, Heading, Text, Button, Stack } from "@chakra-ui/react";
 
 export default function Home() {
   const resumeEventTracker = useAnalyticsEvent("Resume");
@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <div className={styles.homePage}>
-      <div className="container">
+      <Container maxW={["100%", "80%"]}>
         <Head>
           <title>Juani Reyes - Portfolio</title>
           <meta
@@ -29,42 +29,53 @@ export default function Home() {
           <link rel="icon" href="/favicon.svg" />
         </Head>
 
-        <div className={styles.content}>
-          <section>
-            <h1>
+        <Stack justifyContent={"center"} h="100vh" rowGap={4}>
+          <Box>
+            <Heading
+              as="h1"
+              size={{ base: "xl", xl: "2xl" }}
+              mb={{ base: 0, xl: 2 }}
+            >
               Hello there, I’m <span className="primary">Juani</span>
-            </h1>
-            <h1 style={{ marginBottom: 16 }}>
+            </Heading>
+            <Heading mb={{ xl: 2 }} size={{ base: "xl", xl: "2xl" }}>
               <span className="primary">Frontend Engineer</span> / UX Designer
-            </h1>
-            <h2>
+            </Heading>
+            <Heading as="h3" size="lg">
               based in La Paz, <span className="primary">Bolivia</span>
-            </h2>
-          </section>
+            </Heading>
+          </Box>
 
-          <section className={styles.middleSection}>
-            <h2 style={{ marginBottom: 8 }}>
+          <Box>
+            <Text mb={1} fontWeight="bold" fontSize={{ base: "lg", xl: "2xl" }}>
               Sorry to bother you but this site is under construction{" "}
               <span className="primary">(since 1996)</span>
-            </h2>
-            <h2 style={{ marginBottom: 32 }}>
+            </Text>
+            <Text
+              fontWeight={"bold"}
+              fontSize={{ base: "lg", xl: "2xl" }}
+              mb={6}
+            >
               So if you are on a hurry you can download my lovely:
-            </h2>
+            </Text>
 
             <a
               href="/juani_reyes_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button onClick={handleButtonClick}>Resume Here!</Button>
+              <Button
+                size={{ base: "md", xl: "lg" }}
+                onClick={handleButtonClick}
+              >
+                Resume Here!
+              </Button>
             </a>
-          </section>
+          </Box>
 
-          <section>
-            <SocialNetworks />
-          </section>
-        </div>
-      </div>
+          <SocialNetworks />
+        </Stack>
+      </Container>
     </div>
   );
 }
