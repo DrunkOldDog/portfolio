@@ -2,7 +2,16 @@ import Head from "next/head";
 import styles from "../../styles/Home.module.css";
 import { useAnalyticsEvent } from "@common/hooks";
 import SocialNetworks from "@components/SocialNetworks";
-import { Box, Container, Heading, Text, Button, Stack } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Heading,
+  Text,
+  Button,
+  Stack,
+  Flex,
+} from "@chakra-ui/react";
+import MotionText from "@components/MotionText/MotionText";
 
 export default function Home() {
   const resumeEventTracker = useAnalyticsEvent("Resume");
@@ -31,19 +40,67 @@ export default function Home() {
 
         <Stack justifyContent={"center"} h="100vh" rowGap={4}>
           <Box>
-            <Heading
-              as="h1"
-              size={{ base: "xl", lg: "2xl" }}
-              mb={{ base: 0, lg: 2 }}
-            >
-              Hello there, I’m <span className="primary">Juani</span>
-            </Heading>
-            <Heading mb={2} size={["lg", "xl"]}>
-              <span className="primary">Frontend Engineer</span> / UX Designer
-            </Heading>
-            <Heading as="h3" size={["md", "lg"]}>
-              based in La Paz, <span className="primary">Bolivia</span>
-            </Heading>
+            <Flex columnGap={1} mb={[-1, -2]}>
+              <MotionText
+                as="h1"
+                fontWeight="bold"
+                fontSize={{ base: "3xl", lg: "4xl" }}
+              >
+                Hello there, I’m
+              </MotionText>
+              <MotionText
+                as="h1"
+                fontWeight="bold"
+                color="brand.primary"
+                delay={1}
+                fontSize={{ base: "3xl", lg: "4xl" }}
+              >
+                Juani
+              </MotionText>
+            </Flex>
+
+            <Flex columnGap={2} flexWrap="wrap" mb={[1, 0]}>
+              <MotionText
+                as="h1"
+                fontWeight="bold"
+                color="brand.primary"
+                delay={1.5}
+                fontSize={{ base: "2xl", lg: "4xl" }}
+                mb={-1}
+              >
+                Frontend Engineer
+              </MotionText>
+
+              <MotionText
+                as="h1"
+                fontWeight="bold"
+                delay={2.5}
+                fontSize={{ base: "2xl", lg: "4xl" }}
+              >
+                UX Designer
+              </MotionText>
+            </Flex>
+
+            <Flex columnGap={1} flexWrap="wrap" mb={1}>
+              <MotionText
+                as="h3"
+                fontWeight="bold"
+                delay={3}
+                fontSize={["xl", "3xl"]}
+              >
+                based in La Paz,
+              </MotionText>
+
+              <MotionText
+                as="h3"
+                fontWeight="bold"
+                color="brand.primary"
+                delay={4}
+                fontSize={["xl", "3xl"]}
+              >
+                Bolivia
+              </MotionText>
+            </Flex>
           </Box>
 
           <Box>
