@@ -40,8 +40,8 @@ export default function SocialNetworks() {
   const socialMediaEventTracker = useAnalyticsEvent("Social Media");
 
   return (
-    <Box alignSelf={"center"}>
-      <Text fontWeight={"bold"} fontSize={{ base: "lg", xl: "2xl" }}>
+    <Box alignSelf={"center"} justifySelf="center" position={"absolute"} bottom={12}>
+      <Text fontWeight={"bold"} fontSize={{ base: "lg", lg: "2xl" }}>
         Follow me on my socials:
       </Text>
 

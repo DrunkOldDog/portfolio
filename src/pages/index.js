@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <div className={styles.homePage}>
-      <Container maxW={["100%", "80%"]}>
+      <Container maxW={["90%", "80%"]}>
         <Head>
           <title>Juani Reyes - Portfolio</title>
           <meta
@@ -33,27 +33,27 @@ export default function Home() {
           <Box>
             <Heading
               as="h1"
-              size={{ base: "xl", xl: "2xl" }}
-              mb={{ base: 0, xl: 2 }}
+              size={{ base: "xl", lg: "2xl" }}
+              mb={{ base: 0, lg: 2 }}
             >
               Hello there, I’m <span className="primary">Juani</span>
             </Heading>
-            <Heading mb={{ xl: 2 }} size={{ base: "xl", xl: "2xl" }}>
+            <Heading mb={2} size={["lg", "xl"]}>
               <span className="primary">Frontend Engineer</span> / UX Designer
             </Heading>
-            <Heading as="h3" size="lg">
+            <Heading as="h3" size={["md", "lg"]}>
               based in La Paz, <span className="primary">Bolivia</span>
             </Heading>
           </Box>
 
           <Box>
-            <Text mb={1} fontWeight="bold" fontSize={{ base: "lg", xl: "2xl" }}>
+            <Text fontWeight="bold" fontSize={{ base: "lg", lg: "2xl" }}>
               Sorry to bother you but this site is under construction{" "}
               <span className="primary">(since 1996)</span>
             </Text>
             <Text
               fontWeight={"bold"}
-              fontSize={{ base: "lg", xl: "2xl" }}
+              fontSize={{ base: "lg", lg: "2xl" }}
               mb={6}
             >
               So if you are on a hurry you can download my lovely:
@@ -65,7 +65,7 @@ export default function Home() {
               rel="noopener noreferrer"
             >
               <Button
-                size={{ base: "md", xl: "lg" }}
+                size={{ base: "md", lg: "lg" }}
                 onClick={handleButtonClick}
               >
                 Resume Here!
