@@ -2,15 +2,8 @@ import Head from "next/head";
 import styles from "../../styles/Home.module.css";
 import { useAnalyticsEvent } from "@common/hooks";
 import SocialNetworks from "@components/SocialNetworks";
-import {
-  Box,
-  Container,
-  Heading,
-  Text,
-  Button,
-  Stack,
-  Flex,
-} from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import { Box, Container, Text, Button, Stack, Flex } from "@chakra-ui/react";
 import MotionText from "@components/MotionText/MotionText";
 
 export default function Home() {
@@ -103,7 +96,22 @@ export default function Home() {
             </Flex>
           </Box>
 
-          <Box>
+          <Box
+            as={motion.div}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: {
+                opacity: 0,
+                y: 100,
+              },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { delay: 4, duration: 1.2, ease: "easeOut" },
+              },
+            }}
+          >
             <Text fontWeight="bold" fontSize={{ base: "lg", lg: "2xl" }}>
               Sorry to bother you but this site is under construction{" "}
               <span className="primary">(since 1996)</span>

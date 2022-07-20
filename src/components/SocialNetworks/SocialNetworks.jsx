@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 import { Spotify, Instagram, LinkedIn, GitHub } from "@common/icons";
 import { useAnalyticsEvent } from "@common/hooks";
 import { Box, Flex, Text } from "@chakra-ui/react";
@@ -40,7 +41,26 @@ export default function SocialNetworks() {
   const socialMediaEventTracker = useAnalyticsEvent("Social Media");
 
   return (
-    <Box alignSelf={"center"} justifySelf="center" position={"absolute"} bottom={12}>
+    <Box
+      as={motion.div}
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: {
+          opacity: 0,
+          y: 100,
+        },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: { delay: 4, duration: 1.2, ease: "easeOut" },
+        },
+      }}
+      alignSelf={"center"}
+      justifySelf="center"
+      position={"absolute"}
+      bottom={12}
+    >
       <Text fontWeight={"bold"} fontSize={{ base: "lg", lg: "2xl" }}>
         Follow me on my socials:
       </Text>
