@@ -1,134 +1,87 @@
 'use client';
 
-import styles from "../styles/Home.module.css";
-import { useAnalyticsEvent } from "@common/hooks";
-import SocialNetworks from "@components/SocialNetworks";
-import { motion } from "framer-motion";
-import { Box, Container, Text, Button, Stack, Flex } from "@chakra-ui/react";
-import MotionText from "@components/MotionText/MotionText";
+import { useState, useEffect } from "react";
 
 import "./global.css";
 
 export default function Home(): React.JSX.Element {
-  const resumeEventTracker = useAnalyticsEvent("Resume");
+  const [isVisible, setIsVisible] = useState(false);
 
-  const handleButtonClick = (): void =>
-    resumeEventTracker("download", "Download Resume");
+  const handleButtonClick = (): void => {
+    // Resume download functionality
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <div className={styles.homePage}>
-      <Container maxW={["90%", "80%"]}>
-
-        <Stack justifyContent={"center"} h="100vh" rowGap={4}>
-          <Box>
-            <Flex columnGap={1} mb={[-1, -2]}>
-              <MotionText
-                as="h1"
-                fontWeight="bold"
-                fontSize={{ base: "3xl", lg: "4xl" }}
-              >
+    <div>
+      <div className="max-w-[90%] lg:max-w-[80%] mx-auto">
+        <div className="flex flex-col justify-center h-screen gap-4">
+          <div>
+            <div className="flex gap-1 mb-[-0.25rem] lg:mb-[-0.5rem]">
+              <h1 className="text-3xl lg:text-4xl font-bold">
                 Hello there, I&apos;m
-              </MotionText>
-              <MotionText
-                as="h1"
-                fontWeight="bold"
-                color="brand.primary"
-                delay={1}
-                fontSize={{ base: "3xl", lg: "4xl" }}
-              >
+              </h1>
+              <h1 className="text-3xl lg:text-4xl font-bold text-[#979527]">
                 Juani
-              </MotionText>
-            </Flex>
+              </h1>
+            </div>
 
-            <Flex columnGap={2} flexWrap="wrap" mb={[1, 0]}>
-              <MotionText
-                as="h1"
-                fontWeight="bold"
-                color="brand.primary"
-                delay={1.5}
-                fontSize={{ base: "2xl", lg: "4xl" }}
-                mb={-1}
-              >
+            <div className="flex gap-2 flex-wrap mb-1 lg:mb-0">
+              <h1 className="text-2xl lg:text-4xl font-bold text-[#979527] -mb-1">
                 Frontend Engineer
-              </MotionText>
+              </h1>
 
-              <MotionText
-                as="h1"
-                fontWeight="bold"
-                delay={2.5}
-                fontSize={{ base: "2xl", lg: "4xl" }}
-              >
+              <h1 className="text-2xl lg:text-4xl font-bold">
                 UX Designer
-              </MotionText>
-            </Flex>
+              </h1>
+            </div>
 
-            <Flex columnGap={1} flexWrap="wrap" mb={1}>
-              <MotionText
-                as="h3"
-                fontWeight="bold"
-                delay={3}
-                fontSize={["xl", "3xl"]}
-              >
+            <div className="flex gap-1 flex-wrap mb-1">
+              <h3 className="text-xl lg:text-3xl font-bold">
                 based in La Paz,
-              </MotionText>
+              </h3>
 
-              <MotionText
-                as="h3"
-                fontWeight="bold"
-                color="brand.primary"
-                delay={4}
-                fontSize={["xl", "3xl"]}
-              >
+              <h3 className="text-xl lg:text-3xl font-bold text-[#979527]">
                 Bolivia
-              </MotionText>
-            </Flex>
-          </Box>
+              </h3>
+            </div>
+          </div>
 
-          <Box
-            as={motion.div}
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: {
-                opacity: 0,
-                y: 100,
-              },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { delay: 4, duration: 1.2, ease: "easeOut" },
-              },
-            }}
+          <div
+            className={`transition-all duration-1200 ease-out ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-24"
+            }`}
           >
-            <Text fontWeight="bold" fontSize={{ base: "lg", lg: "2xl" }}>
+            <p className="font-bold text-lg lg:text-2xl">
               Sorry to bother you but this site is under construction{" "}
-              <span className="primary">(since 1996)</span>
-            </Text>
-            <Text
-              fontWeight={"bold"}
-              fontSize={{ base: "lg", lg: "2xl" }}
-              mb={6}
-            >
+              <span className="text-[#979527]">(since 1996)</span>
+            </p>
+            <p className="font-bold text-lg lg:text-2xl mb-6">
               So if you are on a hurry you can download my lovely:
-            </Text>
+            </p>
 
             <a
               href="/juani_reyes_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button
-                size={{ base: "md", lg: "lg" }}
+              <button
+                className="font-bold cursor-pointer transition-all duration-250 rounded px-6 py-4 text-lg bg-white text-gray-900 border-2 border-transparent hover:bg-transparent hover:text-white hover:border-white"
                 onClick={handleButtonClick}
               >
                 Resume Here!
-              </Button>
+              </button>
             </a>
-          </Box>
-
-          <SocialNetworks />
-        </Stack>
-      </Container>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
