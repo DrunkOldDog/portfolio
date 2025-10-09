@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 import { Box, Container, Text, Button, Stack, Flex } from "@chakra-ui/react";
 import MotionText from "@components/MotionText/MotionText";
 
+import "./global.css";
+
 export default function Home(): React.JSX.Element {
   const resumeEventTracker = useAnalyticsEvent("Resume");
 
