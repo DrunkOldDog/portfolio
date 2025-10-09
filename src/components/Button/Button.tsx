@@ -1,6 +1,10 @@
 import styled from "@emotion/styled";
 
-export const Button = styled.button`
+interface ButtonProps {
+  variant?: "outlined" | "filled";
+}
+
+export const Button = styled.button<ButtonProps>`
   color: #1d1d1d;
   background-color: ${(props) =>
     props.variant === "outlined" ? "transparent" : "#fff"};

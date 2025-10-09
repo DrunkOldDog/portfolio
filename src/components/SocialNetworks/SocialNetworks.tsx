@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Spotify, Instagram, LinkedIn, GitHub } from "@common/icons";
 import { useAnalyticsEvent } from "@common/hooks";
 import { Box, Flex, Text } from "@chakra-ui/react";
+import type { ComponentType } from "react";
 
 const SocialIcons = styled(Flex)`
   svg {
@@ -18,7 +19,12 @@ const SocialIcons = styled(Flex)`
   }
 `;
 
-const SOCIAL_MEDIA = [
+interface SocialMediaItem {
+  url: string;
+  Component: ComponentType;
+}
+
+const SOCIAL_MEDIA: SocialMediaItem[] = [
   {
     url: "https://open.spotify.com/user/juani888",
     Component: Spotify,
@@ -37,7 +43,7 @@ const SOCIAL_MEDIA = [
   },
 ];
 
-export default function SocialNetworks() {
+export default function SocialNetworks(): React.JSX.Element {
   const socialMediaEventTracker = useAnalyticsEvent("Social Media");
 
   return (

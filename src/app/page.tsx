@@ -1,35 +1,21 @@
-import Head from "next/head";
-import styles from "../../styles/Home.module.css";
+'use client';
+
+import styles from "../styles/Home.module.css";
 import { useAnalyticsEvent } from "@common/hooks";
 import SocialNetworks from "@components/SocialNetworks";
 import { motion } from "framer-motion";
 import { Box, Container, Text, Button, Stack, Flex } from "@chakra-ui/react";
 import MotionText from "@components/MotionText/MotionText";
 
-export default function Home() {
+export default function Home(): React.JSX.Element {
   const resumeEventTracker = useAnalyticsEvent("Resume");
 
-  const handleButtonClick = () =>
+  const handleButtonClick = (): void =>
     resumeEventTracker("download", "Download Resume");
 
   return (
     <div className={styles.homePage}>
       <Container maxW={["90%", "80%"]}>
-        <Head>
-          <title>Juani Reyes - Portfolio</title>
-          <meta
-            name="description"
-            content="Hello there! Welcome to my portfolio. I'm Juani, a Frontend Engineer and UX Designer from Bolivia."
-          />
-          <meta property="og:title" content="Juani Reyes - Portfolio" />
-          <meta
-            property="og:description"
-            content="Hello there! Welcome to my portfolio. I'm Juani, a Frontend Engineer and UX Designer from Bolivia."
-          />
-          <meta property="og:url" content="https://juanireyes.com" />
-          <meta property="og:type" content="website" />
-          <link rel="icon" href="/favicon.svg" />
-        </Head>
 
         <Stack justifyContent={"center"} h="100vh" rowGap={4}>
           <Box>
@@ -39,7 +25,7 @@ export default function Home() {
                 fontWeight="bold"
                 fontSize={{ base: "3xl", lg: "4xl" }}
               >
-                Hello there, I’m
+                Hello there, I&apos;m
               </MotionText>
               <MotionText
                 as="h1"
