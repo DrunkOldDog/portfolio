@@ -8,7 +8,7 @@ export default function Home() {
       <AnimatedBackground />
       <Navigation />
 
-      <main className="mx-auto px-6 sm:px-8 lg:px-16">
+      <main>
         <Intro />
 
         <Work />
