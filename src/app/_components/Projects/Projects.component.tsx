@@ -25,7 +25,7 @@ export const Projects = () => {
 
               <div className="p-4 sm:p-6 space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground font-mono">
+                  <span className="text-sm text-muted-foreground font-light">
                     {project.year}
                   </span>
                   <div className="flex gap-2">
