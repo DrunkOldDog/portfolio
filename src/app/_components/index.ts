@@ -1,3 +1,4 @@
+export * from "./AnimatedBackground";
 export * from "./Connect";
 export * from "./Intro";
 export * from "./Navigation";

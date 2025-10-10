@@ -1,10 +1,11 @@
-import { Intro, Work, Projects, Connect, Navigation } from "@/app/_components";
+import { Intro, Work, Projects, Connect, Navigation, AnimatedBackground } from "@/app/_components";
 
 import "./global.css";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground relative">
+    <div className="min-h-screen text-foreground relative">
+      <AnimatedBackground />
       <Navigation />
 
       <main className="mx-auto px-6 sm:px-8 lg:px-16">
