@@ -1,67 +1,65 @@
+import { socialMedia } from "@/app/_constants";
+import Link from "next/link";
+
 export default function Intro() {
   return (
     <header id="intro" className="min-h-screen flex items-center">
-      <div className="grid lg:grid-cols-5 gap-12 sm:gap-16 w-full">
-        <div className="lg:col-span-3 space-y-6 sm:space-y-8">
-          <div className="space-y-3 sm:space-y-2">
-            <div className="text-sm text-muted-foreground font-mono tracking-wider">
-              PORTFOLIO / 2025
+      <div className="grid lg:grid-cols-12 gap-20 items-center">
+        <div className="lg:col-span-7">
+          <div className="space-y-2">
+            <div className="space-y-4">
+              <h1 className="text-7xl lg:text-5xl font-medium tracking-tight text-black dark:text-white leading-none">
+                <span className="text-gray-500 dark:text-gray-400">
+                  Hi, I'm
+                </span>{" "}
+                Juani
+              </h1>
+
+              <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed font-light">
+                <span className="text-white">Frontend Engineer</span>,{" "}
+                <span className="text-white">UX Designer</span>, and{" "}
+                <span className="text-white">world explorer</span>. Passionate
+                about crafting accessible, scalable, and meaningful digital
+                experiences.
+              </p>
             </div>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight">
-              Juani
-              <br />
-              <span className="text-muted-foreground">Reyes</span>
-            </h1>
-          </div>
 
-          <div className="space-y-6 max-w-md">
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-              Frontend Engineer and UX Designer crafting digital experiences at
-              the intersection of
-              <span className="text-foreground"> design</span>,
-              <span className="text-foreground"> technology</span>, and
-              <span className="text-foreground"> user experience</span>.
-            </p>
-
-            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                Available for work
-              </div>
-              <div>La Paz, Bolivia</div>
+            <div className="flex items-center gap-2 text-lg text-gray-500 dark:text-gray-500">
+              <span>La Paz, Bolivia</span>
+              <span>•</span>
+              <span>Remote</span>
             </div>
           </div>
         </div>
 
-        <div className="lg:col-span-2 flex flex-col justify-end space-y-6 sm:space-y-8 mt-8 lg:mt-0">
-          <div className="space-y-4">
-            <div className="text-sm text-muted-foreground font-mono">
-              CURRENTLY
-            </div>
-            <div className="space-y-2">
-              <div className="text-foreground">
-                Frontend Engineer & UX Designer
-              </div>
-              <div className="text-muted-foreground">Freelance</div>
-              <div className="text-xs text-muted-foreground">
+        <div className="lg:col-span-5">
+          <div className="space-y-2">
+            <div className="space-y-0">
+              <p className="text-xl text-gray-900 dark:text-white font-medium">
+                Senior Frontend Engineer
+              </p>
+              <Link href="https://omedym.com" target="_blank">
+                <p className="text-lg text-gray-500 dark:text-gray-500 font-light hover:text-gray-900 dark:hover:text-white transition-colors duration-300">
+                  Omedym
+                </p>
+              </Link>
+              <p className="text-md text-gray-500 dark:text-gray-500 font-light">
                 2023 — Present
-              </div>
+              </p>
             </div>
-          </div>
 
-          <div className="space-y-4">
-            <div className="text-sm text-muted-foreground font-mono">FOCUS</div>
-            <div className="flex flex-wrap gap-2">
-              {["React", "TypeScript", "Next.js", "Figma", "Tailwind CSS"].map(
-                (skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1 text-xs border border-border rounded-full hover:border-muted-foreground/50 transition-colors duration-300"
-                  >
-                    {skill}
-                  </span>
-                )
-              )}
+            <div className="flex flex-wrap gap-1 text-lg text-gray-600 dark:text-gray-400 font-light">
+              <span>React</span>
+              <span>•</span>
+              <span>Next.js</span>
+            </div>
+
+            <div className="flex gap-3 mt-4">
+              {socialMedia.map((social) => (
+                <Link key={social.name} href={social.url} target="_blank">
+                  <social.icon className="cursor-pointer w-5 h-5 fill-current hover:fill-gray-400 transition-colors duration-300" />
+                </Link>
+              ))}
             </div>
           </div>
         </div>

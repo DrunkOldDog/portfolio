@@ -19,7 +19,7 @@ export default function Home() {
         </div>
       </nav>
 
-      <main className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16">
+      <main className="mx-auto px-6 sm:px-8 lg:px-16">
         <Intro />
 
         <Work />
