@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Juani Reyes - Portfolio",
+  title: "Juani Reyes",
   description:
-    "Hello there! Welcome to my portfolio. I'm Juani, a Frontend Engineer and UX Designer from Bolivia.",
+    "Juani is a Frontend Engineer, UX Designer and world explorer. Big fan of music, beers, technology and pugs.",
   openGraph: {
-    title: "Juani Reyes - Portfolio",
+    title: "Juani Reyes",
     description:
-      "Hello there! Welcome to my portfolio. I'm Juani, a Frontend Engineer and UX Designer from Bolivia.",
+      "Juani is a Frontend Engineer, UX Designer and world explorer. Big fan of music, beers, technology and pugs.",
     url: "https://juanireyes.com",
     type: "website",
   },

@@ -6,15 +6,16 @@ export default function Intro() {
   return (
     <header id="intro" className="min-h-screen flex items-center">
       <Section>
-        <div className="grid lg:grid-cols-12 gap-20 items-center">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-20 items-center">
           <div className="lg:col-span-7">
             <div className="space-y-2">
               <div className="space-y-4">
-                <h1 className="text-7xl lg:text-5xl font-medium tracking-tight text-foreground leading-none">
-                  <span className="text-muted-foreground">Hi, I&apos;m</span> Juani
+                <h1 className="text-5xl font-medium tracking-tight text-foreground leading-none">
+                  <span className="text-muted-foreground">Hi, I&apos;m</span>{" "}
+                  Juani
                 </h1>
 
-                <p className="text-xl text-muted-foreground leading-relaxed font-light">
+                <p className="text-lg max-w-xl lg:text-xl text-muted-foreground leading-relaxed font-light">
                   <span className="text-foreground">Frontend Engineer</span>,{" "}
                   <span className="text-foreground">UX Designer</span>, and{" "}
                   <span className="text-foreground">world explorer</span>.
@@ -28,10 +29,18 @@ export default function Intro() {
                 <span>•</span>
                 <span>Remote</span>
               </div>
+
+              <div className="flex gap-3 mt-4 lg:hidden">
+                {socialMedia.map((social) => (
+                  <Link key={social.name} href={social.url} target="_blank">
+                    <social.icon className="cursor-pointer w-5 h-5 fill-current hover:fill-muted-foreground transition-colors duration-300" />
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div className="lg:col-span-5">
+          <div className="hidden lg:block lg:col-span-5">
             <div className="space-y-2">
               <div className="space-y-0">
                 <p className="text-xl text-foreground font-medium">
