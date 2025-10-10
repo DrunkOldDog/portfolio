@@ -11,7 +11,7 @@ export default function Intro() {
             <div className="space-y-2">
               <div className="space-y-4">
                 <h1 className="text-7xl lg:text-5xl font-medium tracking-tight text-foreground leading-none">
-                  <span className="text-muted-foreground">Hi, I'm</span> Juani
+                  <span className="text-muted-foreground">Hi, I&apos;m</span> Juani
                 </h1>
 
                 <p className="text-xl text-muted-foreground leading-relaxed font-light">
