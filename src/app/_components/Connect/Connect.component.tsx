@@ -1,9 +1,10 @@
 import { contactInfo } from "@/app/_constants";
+import { Section } from "@/components/shared";
 import Link from "next/link";
 
 export const Connect = () => {
   return (
-    <section id="connect" className="py-20 sm:py-32">
+    <Section id="connect" className="py-20 sm:py-32">
       <div className="grid lg:grid-cols-2 gap-12 sm:gap-16">
         <div className="space-y-6 sm:space-y-8">
           <h2 className="text-3xl sm:text-4xl font-light">Let's Connect</h2>
@@ -60,6 +61,6 @@ export const Connect = () => {
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 };

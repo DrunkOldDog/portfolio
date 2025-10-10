@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { projects } from "@/app/_constants";
+import { Section } from "@/components/shared";
 
 export const Projects = () => {
   return (
-    <section id="projects" className="min-h-screen py-20 sm:py-32">
+    <Section id="projects" className="min-h-screen py-20 sm:py-32">
       <div className="space-y-12 sm:space-y-16">
         <h2 className="text-3xl sm:text-4xl font-light">Projects</h2>
 
@@ -96,6 +97,6 @@ export const Projects = () => {
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 };
