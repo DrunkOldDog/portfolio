@@ -1,132 +1,31 @@
-'use client';
+import { Intro, Work, Projects, Connect, Navigation } from "@/app/_components";
 
-import styles from "../styles/Home.module.css";
-import { useAnalyticsEvent } from "@common/hooks";
-import SocialNetworks from "@components/SocialNetworks";
-import { motion } from "framer-motion";
-import { Box, Container, Text, Button, Stack, Flex } from "@chakra-ui/react";
-import MotionText from "@components/MotionText/MotionText";
+import "./global.css";
 
-export default function Home(): React.JSX.Element {
-  const resumeEventTracker = useAnalyticsEvent("Resume");
-
-  const handleButtonClick = (): void =>
-    resumeEventTracker("download", "Download Resume");
-
+export default function Home() {
   return (
-    <div className={styles.homePage}>
-      <Container maxW={["90%", "80%"]}>
+    <div className="min-h-screen bg-background text-foreground relative">
+      <Navigation />
 
-        <Stack justifyContent={"center"} h="100vh" rowGap={4}>
-          <Box>
-            <Flex columnGap={1} mb={[-1, -2]}>
-              <MotionText
-                as="h1"
-                fontWeight="bold"
-                fontSize={{ base: "3xl", lg: "4xl" }}
-              >
-                Hello there, I&apos;m
-              </MotionText>
-              <MotionText
-                as="h1"
-                fontWeight="bold"
-                color="brand.primary"
-                delay={1}
-                fontSize={{ base: "3xl", lg: "4xl" }}
-              >
-                Juani
-              </MotionText>
-            </Flex>
+      <main className="mx-auto px-6 sm:px-8 lg:px-16">
+        <Intro />
 
-            <Flex columnGap={2} flexWrap="wrap" mb={[1, 0]}>
-              <MotionText
-                as="h1"
-                fontWeight="bold"
-                color="brand.primary"
-                delay={1.5}
-                fontSize={{ base: "2xl", lg: "4xl" }}
-                mb={-1}
-              >
-                Frontend Engineer
-              </MotionText>
+        <Work />
 
-              <MotionText
-                as="h1"
-                fontWeight="bold"
-                delay={2.5}
-                fontSize={{ base: "2xl", lg: "4xl" }}
-              >
-                UX Designer
-              </MotionText>
-            </Flex>
+        <Projects />
 
-            <Flex columnGap={1} flexWrap="wrap" mb={1}>
-              <MotionText
-                as="h3"
-                fontWeight="bold"
-                delay={3}
-                fontSize={["xl", "3xl"]}
-              >
-                based in La Paz,
-              </MotionText>
+        <Connect />
 
-              <MotionText
-                as="h3"
-                fontWeight="bold"
-                color="brand.primary"
-                delay={4}
-                fontSize={["xl", "3xl"]}
-              >
-                Bolivia
-              </MotionText>
-            </Flex>
-          </Box>
+        <footer className="py-12 sm:py-16 border-t border-border">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 sm:gap-8">
+            <div className="text-xs text-muted-foreground">
+              Built with Vercel's v0.
+            </div>
+          </div>
+        </footer>
+      </main>
 
-          <Box
-            as={motion.div}
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: {
-                opacity: 0,
-                y: 100,
-              },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { delay: 4, duration: 1.2, ease: "easeOut" },
-              },
-            }}
-          >
-            <Text fontWeight="bold" fontSize={{ base: "lg", lg: "2xl" }}>
-              Sorry to bother you but this site is under construction{" "}
-              <span className="primary">(since 1996)</span>
-            </Text>
-            <Text
-              fontWeight={"bold"}
-              fontSize={{ base: "lg", lg: "2xl" }}
-              mb={6}
-            >
-              So if you are on a hurry you can download my lovely:
-            </Text>
-
-            <a
-              href="/juani_reyes_resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                size={{ base: "md", lg: "lg" }}
-                onClick={handleButtonClick}
-              >
-                Resume Here!
-              </Button>
-            </a>
-          </Box>
-
-          <SocialNetworks />
-        </Stack>
-      </Container>
+      <div className="fixed bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none"></div>
     </div>
   );
 }
