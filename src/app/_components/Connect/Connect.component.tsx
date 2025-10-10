@@ -1,3 +1,4 @@
+import { contactInfo } from "@/app/_constants";
 import Link from "next/link";
 
 export const Connect = () => {
@@ -15,11 +16,11 @@ export const Connect = () => {
 
             <div className="space-y-4">
               <Link
-                href="mailto:juanireyes@example.com"
+                href="mailto:reyesg.juani@gmail.com"
                 className="group flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors duration-300"
               >
                 <span className="text-base sm:text-lg">
-                  juanireyes@example.com
+                  reyesg.juani@gmail.com
                 </span>
                 <svg
                   className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
@@ -39,50 +40,24 @@ export const Connect = () => {
           </div>
         </div>
 
-        <div className="space-y-6 sm:space-y-8">
-          <div className="text-sm text-muted-foreground font-mono">
-            ELSEWHERE
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              {
-                name: "GitHub",
-                handle: "@juanireyes",
-                url: "https://github.com/juanireyes",
-              },
-              {
-                name: "LinkedIn",
-                handle: "juanireyes",
-                url: "https://linkedin.com/in/juanireyes",
-              },
-              {
-                name: "Portfolio",
-                handle: "juanireyes.dev",
-                url: "https://juanireyes.dev",
-              },
-              {
-                name: "Resume",
-                handle: "Download PDF",
-                url: "/juani_reyes_resume.pdf",
-              },
-            ].map((social) => (
-              <Link
-                key={social.name}
-                href={social.url}
-                className="group p-4 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-300 hover:shadow-sm"
-              >
-                <div className="space-y-2">
-                  <div className="text-foreground group-hover:text-muted-foreground transition-colors duration-300">
-                    {social.name}
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    {social.handle}
-                  </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {contactInfo.map((social) => (
+            <Link
+              key={social.name}
+              href={social.url}
+              target="_blank"
+              className="group p-4 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-300 hover:shadow-sm"
+            >
+              <div className="space-y-2">
+                <div className="text-foreground group-hover:text-muted-foreground transition-colors duration-300">
+                  {social.name}
                 </div>
-              </Link>
-            ))}
-          </div>
+                <div className="text-sm text-muted-foreground">
+                  {social.handle}
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

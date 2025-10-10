@@ -17,3 +17,26 @@ export const socialMedia = [
     icon: Instagram,
   },
 ];
+
+export const contactInfo = [
+  {
+    name: "GitHub",
+    handle: "DrunkOldDog",
+    url: "https://github.com/DrunkOldDog",
+  },
+  {
+    name: "LinkedIn",
+    handle: "juanireyes",
+    url: "https://linkedin.com/in/juanireyes",
+  },
+  {
+    name: "Instagram",
+    handle: "juanireyesg",
+    url: "https://instagram.com/juanireyesg",
+  },
+  {
+    name: "Resume",
+    handle: "Download PDF",
+    url: "/docs/cv_juani_reyes.pdf",
+  },
+];
