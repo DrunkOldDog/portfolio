@@ -198,7 +198,6 @@ export interface Project {
    * Year the project was completed
    */
   year: number;
-  status: 'completed' | 'in-progress' | 'planning' | 'on-hold';
   /**
    * Technologies used in this project
    */
@@ -252,69 +251,6 @@ export interface Project {
         id?: string | null;
       }[]
     | null;
-  /**
-   * Technical challenges faced and how they were solved
-   */
-  challenges?:
-    | {
-        title: string;
-        description: {
-          root: {
-            type: string;
-            children: {
-              type: any;
-              version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        };
-        solution: {
-          root: {
-            type: string;
-            children: {
-              type: any;
-              version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        };
-        id?: string | null;
-      }[]
-    | null;
-  metrics?: {
-    /**
-     * Approximate lines of code
-     */
-    linesOfCode?: number | null;
-    /**
-     * e.g., "3 months", "2 weeks"
-     */
-    developmentTime?: string | null;
-    /**
-     * Number of team members
-     */
-    teamSize?: number | null;
-    performance?: {
-      /**
-       * Lighthouse performance score (0-100)
-       */
-      lighthouseScore?: number | null;
-      /**
-       * e.g., "245KB gzipped"
-       */
-      bundleSize?: string | null;
-    };
-  };
   seo?: {
     /**
      * SEO title (if different from main title)
@@ -334,14 +270,6 @@ export interface Project {
         }[]
       | null;
   };
-  /**
-   * Whether this project should be visible on the frontend
-   */
-  published?: boolean | null;
-  /**
-   * Whether this project should be featured prominently
-   */
-  featured?: boolean | null;
   /**
    * Display order (lower numbers appear first)
    */
@@ -461,7 +389,6 @@ export interface ProjectsSelect<T extends boolean = true> {
   description?: T;
   content?: T;
   year?: T;
-  status?: T;
   tech?:
     | T
     | {
@@ -492,27 +419,6 @@ export interface ProjectsSelect<T extends boolean = true> {
         icon?: T;
         id?: T;
       };
-  challenges?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-        solution?: T;
-        id?: T;
-      };
-  metrics?:
-    | T
-    | {
-        linesOfCode?: T;
-        developmentTime?: T;
-        teamSize?: T;
-        performance?:
-          | T
-          | {
-              lighthouseScore?: T;
-              bundleSize?: T;
-            };
-      };
   seo?:
     | T
     | {
@@ -525,8 +431,6 @@ export interface ProjectsSelect<T extends boolean = true> {
               id?: T;
             };
       };
-  published?: T;
-  featured?: T;
   order?: T;
   updatedAt?: T;
   createdAt?: T;

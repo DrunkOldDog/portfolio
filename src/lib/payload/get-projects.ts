@@ -5,11 +5,7 @@ export const getProjects = async () => {
   const payload = await getPayload({ config });
   const { docs: projects } = await payload.find({
     collection: "projects",
-    where: {
-      published: {
-        equals: true,
-      },
-    },
+    sort: "order",
   });
 
   return projects;
