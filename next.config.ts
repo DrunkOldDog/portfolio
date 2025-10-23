@@ -15,6 +15,14 @@ const nextConfig: NextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: false,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "localhost",
+      },
+    ],
+  },
 }
 
 export default withPayload(nextConfig)

@@ -1,9 +1,12 @@
 import Image from "next/image";
 import { Section } from "@/components/shared";
 
-import { projects } from "../../_constants";
+import { getProjects } from "@/lib/payload";
+import { getPayloadImage } from "@/lib/helpers";
 
-export const Projects = () => {
+export const Projects = async () => {
+  const projects = await getProjects();
+
   return (
     <Section id="projects" className="min-h-screen py-20 sm:py-32">
       <div className="space-y-12 sm:space-y-16">
@@ -15,14 +18,16 @@ export const Projects = () => {
               key={index}
               className="group relative overflow-hidden rounded-lg border border-border hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg"
             >
+              {project.featuredImage && (
                 <div className="aspect-video bg-muted/20 relative overflow-hidden">
                   <Image
-                    src={project.image}
+                    src={getPayloadImage(project.featuredImage)}
                     alt={project.title}
                     fill
                     className="object-cover"
                   />
                 </div>
+              )}
 
               <div className="p-4 sm:p-6 space-y-3">
                 <div className="flex items-center justify-between">
@@ -30,9 +35,9 @@ export const Projects = () => {
                     {project.year}
                   </span>
                   <div className="flex gap-2">
-                    {project.github && (
+                    {project.links?.github && (
                       <a
-                        href={project.github}
+                        href={project.links.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 rounded-lg border border-border hover:border-muted-foreground/50 transition-all duration-300 hover:bg-muted/50"
@@ -47,9 +52,9 @@ export const Projects = () => {
                         </svg>
                       </a>
                     )}
-                    {project.live && (
+                    {project.links?.live && (
                       <a
-                        href={project.live}
+                        href={project.links.live}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 rounded-lg border border-border hover:border-muted-foreground/50 transition-all duration-300 hover:bg-muted/50"
@@ -85,10 +90,10 @@ export const Projects = () => {
                   <div className="flex flex-wrap gap-1">
                     {project.tech.map((tech) => (
                       <span
-                        key={tech}
+                        key={tech.technology}
                         className="text-xs px-2 py-1 bg-muted/50 text-muted-foreground rounded-md"
                       >
-                        {tech}
+                        {tech.technology}
                       </span>
                     ))}
                   </div>

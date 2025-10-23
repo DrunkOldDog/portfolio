@@ -69,6 +69,7 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    projects: Project;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -77,6 +78,7 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    projects: ProjectsSelect<false> | ProjectsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -158,6 +160,198 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: string;
+  /**
+   * The main title of the project
+   */
+  title: string;
+  /**
+   * URL-friendly version of the title
+   */
+  slug: string;
+  /**
+   * Brief description of the project (used in cards and previews)
+   */
+  description: string;
+  /**
+   * Detailed project explanation with rich text formatting
+   */
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Year the project was completed
+   */
+  year: number;
+  status: 'completed' | 'in-progress' | 'planning' | 'on-hold';
+  /**
+   * Technologies used in this project
+   */
+  tech: {
+    technology: string;
+    id?: string | null;
+  }[];
+  links?: {
+    /**
+     * GitHub repository URL
+     */
+    github?: string | null;
+    /**
+     * Live demo URL
+     */
+    live?: string | null;
+    /**
+     * Documentation URL
+     */
+    documentation?: string | null;
+    /**
+     * Design mockups or Figma URL
+     */
+    design?: string | null;
+  };
+  /**
+   * Main project image (thumbnail)
+   */
+  featuredImage?: (string | null) | Media;
+  /**
+   * Additional project images
+   */
+  gallery?:
+    | {
+        image: string | Media;
+        caption?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Key features of the project
+   */
+  features?:
+    | {
+        title: string;
+        description: string;
+        /**
+         * Icon name or emoji for the feature
+         */
+        icon?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Technical challenges faced and how they were solved
+   */
+  challenges?:
+    | {
+        title: string;
+        description: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        solution: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  metrics?: {
+    /**
+     * Approximate lines of code
+     */
+    linesOfCode?: number | null;
+    /**
+     * e.g., "3 months", "2 weeks"
+     */
+    developmentTime?: string | null;
+    /**
+     * Number of team members
+     */
+    teamSize?: number | null;
+    performance?: {
+      /**
+       * Lighthouse performance score (0-100)
+       */
+      lighthouseScore?: number | null;
+      /**
+       * e.g., "245KB gzipped"
+       */
+      bundleSize?: string | null;
+    };
+  };
+  seo?: {
+    /**
+     * SEO title (if different from main title)
+     */
+    metaTitle?: string | null;
+    /**
+     * SEO description
+     */
+    metaDescription?: string | null;
+    /**
+     * SEO keywords
+     */
+    keywords?:
+      | {
+          keyword: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  /**
+   * Whether this project should be visible on the frontend
+   */
+  published?: boolean | null;
+  /**
+   * Whether this project should be featured prominently
+   */
+  featured?: boolean | null;
+  /**
+   * Display order (lower numbers appear first)
+   */
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -170,6 +364,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: string | Media;
+      } | null)
+    | ({
+        relationTo: 'projects';
+        value: string | Project;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -252,6 +450,87 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects_select".
+ */
+export interface ProjectsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  description?: T;
+  content?: T;
+  year?: T;
+  status?: T;
+  tech?:
+    | T
+    | {
+        technology?: T;
+        id?: T;
+      };
+  links?:
+    | T
+    | {
+        github?: T;
+        live?: T;
+        documentation?: T;
+        design?: T;
+      };
+  featuredImage?: T;
+  gallery?:
+    | T
+    | {
+        image?: T;
+        caption?: T;
+        id?: T;
+      };
+  features?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        icon?: T;
+        id?: T;
+      };
+  challenges?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        solution?: T;
+        id?: T;
+      };
+  metrics?:
+    | T
+    | {
+        linesOfCode?: T;
+        developmentTime?: T;
+        teamSize?: T;
+        performance?:
+          | T
+          | {
+              lighthouseScore?: T;
+              bundleSize?: T;
+            };
+      };
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+        keywords?:
+          | T
+          | {
+              keyword?: T;
+              id?: T;
+            };
+      };
+  published?: T;
+  featured?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

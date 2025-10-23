@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "migrate:projects": "payload run scripts/migrate-projects.ts"
   },
   "dependencies": {
     "@payloadcms/db-mongodb": "^3.60.0",
@@ -26,6 +27,7 @@
     "postcss": "^8.5.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "sharp": "^0.34.4",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.14"
   },
