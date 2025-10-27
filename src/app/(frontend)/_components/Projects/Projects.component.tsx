@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Section } from "@/components/shared";
+import { ArrowRight } from "lucide-react";
 
 import { getProjects } from "@/lib/payload";
 import { getPayloadImage } from "@/lib/helpers";
@@ -16,7 +18,7 @@ export const Projects = async () => {
           {projects.map((project, index) => (
             <article
               key={index}
-              className="group relative overflow-hidden rounded-lg border border-border hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg"
+              className="group relative overflow-hidden rounded-lg border border-border hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg flex flex-col"
             >
               {project.featuredImage && (
                 <div className="aspect-video bg-muted/20 relative overflow-hidden">
@@ -30,7 +32,7 @@ export const Projects = async () => {
                 </div>
               )}
 
-              <div className="p-4 sm:p-6 space-y-3">
+              <div className="p-4 sm:p-6 flex flex-col flex-1">
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground font-light">
                     {project.year}
@@ -79,7 +81,7 @@ export const Projects = async () => {
                   </div>
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-2 flex-1">
                   <h3 className="text-base sm:text-lg font-medium group-hover:text-muted-foreground transition-colors duration-300">
                     {project.title}
                   </h3>
@@ -99,6 +101,16 @@ export const Projects = async () => {
                     ))}
                   </div>
                 </div>
+
+                {project.content && (
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="text-sm text-white hover:text-white/50 transition-colors duration-300 flex items-center gap-2 mt-4 ml-auto"
+                  >
+                    Learn More
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                )}
               </div>
             </article>
           ))}

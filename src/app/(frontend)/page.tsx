@@ -7,8 +7,6 @@ import {
   AnimatedBackground,
 } from "./_components";
 
-import "./global.css";
-
 export default function Home() {
   return (
     <div className="min-h-screen text-foreground relative">
