@@ -1,4 +1,7 @@
+import { withPayload } from "@payloadcms/next/withPayload";
 import type { NextConfig } from 'next'
+
+const APP_URL = process.env.NEXT_PUBLIC_HOST_NAME || "juanireyes.com";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -14,6 +17,18 @@ const nextConfig: NextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: false,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "localhost",
+      },
+      {
+        protocol: "https",
+        hostname: APP_URL,
+      }
+    ],
+  },
 }
 
-export default nextConfig
+export default withPayload(nextConfig)

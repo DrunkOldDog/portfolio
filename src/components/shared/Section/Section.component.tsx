@@ -1,6 +1,6 @@
 import * as motion from "motion/react-client";
 
-import type { HTMLMotionProps } from "motion/dist/react";
+import type { HTMLMotionProps } from "motion/react";
 
 export default function Section({
   children,
