@@ -1,6 +1,8 @@
 import { withPayload } from "@payloadcms/next/withPayload";
 import type { NextConfig } from 'next'
 
+const APP_URL = process.env.NEXT_PUBLIC_HOST_NAME || "juanireyes.com";
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   typescript: {
@@ -21,6 +23,10 @@ const nextConfig: NextConfig = {
         protocol: "http",
         hostname: "localhost",
       },
+      {
+        protocol: "https",
+        hostname: APP_URL,
+      }
     ],
   },
 }
