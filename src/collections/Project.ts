@@ -1,3 +1,6 @@
+import { VideoBlock } from "@/blocks/VideoBlock/videoBlock.config";
+import { BlocksFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
+
 import type { CollectionConfig } from "payload";
 
 export const Project: CollectionConfig = {
@@ -61,6 +64,15 @@ export const Project: CollectionConfig = {
       admin: {
         description: "Detailed project explanation with rich text formatting",
       },
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [
+          ...defaultFeatures,
+          BlocksFeature({
+            blocks: [VideoBlock],
+            inlineBlocks: [],
+          }),
+        ],
+      }),
     },
     {
       name: "year",
