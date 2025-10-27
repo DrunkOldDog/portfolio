@@ -1,16 +1,8 @@
-import {
-  Intro,
-  Work,
-  Projects,
-  Connect,
-  Navigation,
-  AnimatedBackground,
-} from "./_components";
+import { Intro, Work, Projects, Connect, Navigation } from "./_components";
 
 export default function Home() {
   return (
     <div className="min-h-screen text-foreground relative">
-      <AnimatedBackground />
       <Navigation />
 
       <main>

@@ -3,13 +3,7 @@ import { getPayload } from "payload";
 import config from "@/payload.config";
 import { ProjectDetail } from "@/features/Projects/components";
 
-interface ProjectPageProps {
-  params: {
-    slug: string;
-  };
-}
-
-export default async function ProjectPage({ params }: ProjectPageProps) {
+export default async function ProjectPage({ params }: PageProps<"/projects/[slug]">) {
   const payload = await getPayload({ config })
   const { slug } = await params;
 

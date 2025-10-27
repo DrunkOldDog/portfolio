@@ -1,3 +1,5 @@
+import { AnimatedBackground } from "./_components";
+
 import type { Metadata } from "next";
 
 import "./global.css";
@@ -22,7 +24,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className="mx-auto max-w-6xl px-8">{children}</body>
+      <body className="mx-auto max-w-6xl px-8">
+        <AnimatedBackground />
+
+        {children}
+      </body>
     </html>
   );
 }
