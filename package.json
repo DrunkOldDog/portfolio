@@ -12,10 +12,11 @@
     "migrate:projects": "payload run scripts/migrate-projects.ts"
   },
   "dependencies": {
-    "@payloadcms/db-mongodb": "^3.60.0",
-    "@payloadcms/next": "^3.60.0",
-    "@payloadcms/payload-cloud": "^3.60.0",
-    "@payloadcms/richtext-lexical": "^3.60.0",
+    "@payloadcms/db-mongodb": "3.60.0",
+    "@payloadcms/next": "3.60.0",
+    "@payloadcms/payload-cloud": "3.60.0",
+    "@payloadcms/richtext-lexical": "3.60.0",
+    "@payloadcms/storage-vercel-blob": "3.60.0",
     "@tailwindcss/postcss": "^4.1.14",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
