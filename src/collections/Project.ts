@@ -1,3 +1,4 @@
+import { Code } from "@/blocks/CodeBlock";
 import { VideoBlock } from "@/blocks/VideoBlock/videoBlock.config";
 import { BlocksFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 
@@ -68,7 +69,7 @@ export const Project: CollectionConfig = {
         features: ({ defaultFeatures }) => [
           ...defaultFeatures,
           BlocksFeature({
-            blocks: [VideoBlock],
+            blocks: [VideoBlock, Code],
             inlineBlocks: [],
           }),
         ],
