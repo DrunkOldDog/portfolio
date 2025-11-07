@@ -17,6 +17,7 @@
     "@payloadcms/payload-cloud": "3.60.0",
     "@payloadcms/richtext-lexical": "3.60.0",
     "@payloadcms/storage-vercel-blob": "3.60.0",
+    "@radix-ui/react-slot": "^1.2.4",
     "@tailwindcss/postcss": "^4.1.14",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -29,6 +30,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sharp": "^0.34.4",
+    "shiki": "^3.15.0",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.14"
   },
