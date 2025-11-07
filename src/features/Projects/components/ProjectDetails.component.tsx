@@ -13,7 +13,7 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
     <div className="min-h-screen py-20 sm:py-32">
       {/* Hero Section */}
       <section className="relative">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto sm:px-4">
           <div className="max-w-4xl mx-auto">
             <Link
               href="/#projects"
@@ -41,7 +41,7 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
       {/* Project Content */}
       {project.content && (
         <section className="py-4">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto sm:px-4">
             <div className="max-w-4xl mx-auto">
               <div className="prose dark:prose-invert prose-neutral prose-lg max-w-none">
                 {/* This would need a rich text renderer for Lexical content */}
