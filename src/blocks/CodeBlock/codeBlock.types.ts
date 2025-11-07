@@ -1,4 +1,4 @@
-export type CodeBlockLanguage = "javascript" | "typescript" | "tsx";
+export type CodeBlockLanguage = "javascript" | "typescript" | "markdown";
 
 export interface CodeBlockProps {
   code: string;

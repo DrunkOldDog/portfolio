@@ -7,11 +7,11 @@ export const Code: Block = {
     {
       name: "language",
       type: "select",
-      defaultValue: "tsx",
+      defaultValue: "markdown",
       options: [
         {
-          label: "TSX",
-          value: "tsx",
+          label: "Default",
+          value: "markdown",
         },
         {
           label: "JavaScript",
